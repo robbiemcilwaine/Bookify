@@ -25,7 +25,7 @@ public class User {
     @JsonIgnoreProperties({"user"})
     private List<Bookshelf> bookshelves;
 
-    public User( String username) {
+    public User(String username) {
         this.username = username;
         this.usersBooks = new ArrayList<>();
         this.bookshelves = new ArrayList<>();
