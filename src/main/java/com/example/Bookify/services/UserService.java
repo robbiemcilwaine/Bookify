@@ -41,6 +41,17 @@ public class UserService {
         return Optional.empty();
     }
 
+//userRepository.findById(id) method to retrieve an Optional<User> object based on the provided user ID
+//
+//Optional<User> is present (i.e., a user with the given ID exists), it extracts the User object using userOptional.get().
+//
+//updates the user properties based on the values from the UserDTO object
+//
+//saves the updated User object using userRepository.save(user) and wraps the result in an Optional using Optional.of().
+//
+//If Optional<User> is empty (i.e., no user with the given ID exists), it returns an empty Optional using Optional.empty().
+
+
     public void deleteUser(long id){
         userRepository.deleteById(id);
     }
