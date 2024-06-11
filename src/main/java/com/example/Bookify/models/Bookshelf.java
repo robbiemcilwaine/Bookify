@@ -36,8 +36,7 @@ public class Bookshelf {
 //    private List<Book> books;
 
 
-    public Bookshelf(long id, User user, String name) {
-        this.id = id;
+    public Bookshelf(User user, String name) {
         this.user = user;
         this.name = name;
         this.books = new ArrayList<>();

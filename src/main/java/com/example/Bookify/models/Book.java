@@ -36,19 +36,20 @@ public class Book {
     @Enumerated(EnumType.STRING)
     private Genre genre;
 
-    @ManyToMany(mappedBy = "books")
-    @JoinColumn(name = "bookshelves_books")
-    @JsonIgnoreProperties({"books"})
-    private List<Bookshelf> bookshelves;
 
-    @OneToMany(mappedBy = "books")
-    @JoinColumn(name = "users_books")
+    @OneToMany(mappedBy = "book")
     @JsonIgnoreProperties({"books"})
     private List<UsersBooks> usersBooks;
 
+    @ManyToMany
+    @JoinTable(
+            name = "bookshelf_books",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "bookshelf_id")    )
+    private List<Bookshelf> bookshelves;
 
-    public Book(long id, String title, String author, String isbn, LocalDate publicationYear, double rating, Genre genre) {
-        this.id = id;
+
+    public Book(String title, String author, String isbn, LocalDate publicationYear, double rating, Genre genre) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;

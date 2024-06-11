@@ -21,8 +21,7 @@ public class UsersBooks {
     @Enumerated(EnumType.STRING)
     private ReadingStatus readingStatus;
 
-    public UsersBooks(long id, User user, Book book, ReadingStatus readingStatus) {
-        this.id = id;
+    public UsersBooks(User user, Book book, ReadingStatus readingStatus) {
         this.user = user;
         this.book = book;
         this.readingStatus = readingStatus;
