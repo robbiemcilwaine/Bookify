@@ -12,10 +12,9 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private long id;
 
-    @Column
+    @Column(name = "username")
     private String username;
 
     @OneToMany(mappedBy = "user")
