@@ -44,7 +44,7 @@ public class BookshelfController {
     }
 
 //   Add book to existing bookshelf
-
+    @PatchMapping(value = "/{id}")
 
 
 //    Update the name of a specific bookshelf
