@@ -19,6 +19,7 @@ This system allows the user access to their bookshelves and associated books. It
 | SHOW   | /bookshelves/{id} |  Retrieve a specific bookshelf |
 | CREATE/POST | /bookshelves| Add a new book to the bookshelf |
 |PATCH | /bookshelves/{id} | Add book (request body) to specific bookshelf|
+| UPDATE/PUT | /bookshelves/{id} | Update the details of a specific bookshelf |
 |DELETE |/bookshelves/{id}|Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)|
 
 ### Book
@@ -29,7 +30,7 @@ This system allows the user access to their bookshelves and associated books. It
 | SHOW | /books/{id} | Retrieve a specific book by its ID |
 | INDEX | /books | Retrieve all books |
 | UPDATE/PUT | /books/{id} | Update the details of a specific book |
-| UPDATE/PATCH | /books/{id} | Update if book has been read |
+|**DELETE**|**/books/{id}**| **Delete a specific book** |
 
 
 ### User
@@ -41,5 +42,10 @@ This system allows the user access to their bookshelves and associated books. It
 |PUT | /users/{id} | Update the details of a specific user|
 |POST|/users | Create a new user |
 |DELETE|/users/{id}| Delete a specific user |
+
+### UsersBooks
+| Endpoints        | URLs           | Description  |
+| :-------------: |:-------------:| :-----:|
+| UPDATE/PATCH | /books/{id} | Update reading status |
 
 ## Extensions
