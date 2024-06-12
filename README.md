@@ -29,7 +29,7 @@ This system allows the user access to their bookshelves and associated books. It
 | INDEX/GET/ | /books | Get all books in all the collections (this could be something in the extension as a family plan) |
 | SHOW | /books/{id} | Retrieve a specific book by its ID |
 | INDEX | /books | Retrieve all books |
-~| UPDATE/PUT | /books/{id} | Update the details of a specific book |~
+~~| UPDATE/PUT | /books/{id} | Update the details of a specific book |~~
 |**DELETE**|**/books/{id}**| **Delete a specific book** |
 
 
