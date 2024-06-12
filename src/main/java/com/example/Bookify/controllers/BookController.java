@@ -36,13 +36,6 @@ public class BookController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-//    Update the detail of a specific book
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<Optional<Book>> updateBook(@PathVariable long id, @RequestBody Book book){
-        Optional<Book> updatedBook = bookService.updateBook(id, book);
-        return new ResponseEntity<>(updatedBook, HttpStatus.OK);
-    }
-
 //    Create new book
     @PostMapping
     public ResponseEntity<Book> createBook(@RequestBody Book book){
