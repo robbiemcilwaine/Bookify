@@ -33,58 +33,53 @@ public class BookshelfService {
     }
 
     //    Update an existing bookshelf
-    public Optional<Bookshelf> updateBookshelf(long id, Bookshelf updatedBookshelf, Book bookToAdd) {
-    // find the bookshelf by its ID
+    public Optional<Bookshelf> updateBookshelf(long id, Bookshelf updatedBookshelf) {
         Optional<Bookshelf> optionalBookshelf = bookshelfRepository.findById(id);
-
-    // check if the bookshelf exists
         if (optionalBookshelf.isPresent()) {
-            // get the bookshelf object from the optional
             Bookshelf bookshelf = optionalBookshelf.get();
-
-            // update the bookshelf name
             bookshelf.setName(updatedBookshelf.getName());
-
-            // get the current list of books associated with that bookshelf
-            List<Book> books = bookshelf.getBooks();
-            if (books == null) {
-                books = new ArrayList<>();
-            }
-
-
-                // add a book to that bookshelf
-                books.add(bookToAdd);
-
-                // set the updated list of books back to the bookshelf
-                bookshelf.setBooks((books));
-
-                // save the updated bookshelf using the BookshelfRepository
-                Bookshelf updatedbookshelf = bookshelfRepository.save(bookshelf);
-
-                // return an Optional containing the updated bookshelf
-                return Optional.of(updatedBookshelf);
-
-            }
-
-            // if the bookshelf isn't found, return an empty Optional
-             return Optional.empty();
-
+            return Optional.of(bookshelfRepository.save(bookshelf));
         }
+        return Optional.empty();
     }
 
-    public void deleteBookshelf(Long id) {
+    // Add a book to a bookshelf
+    public Optional<Bookshelf> addBookToBookshelf(long bookshelfId, Book book) {
+        Optional<Bookshelf> optionalBookshelf = bookshelfRepository.findById(bookshelfId);
+        if (optionalBookshelf.isPresent()) {
+            Bookshelf bookshelf = optionalBookshelf.get();
+            bookshelf.getBooks().add(book);
+            return Optional.of(bookshelfRepository.save(bookshelf));
+        }
+        return Optional.empty();
+    }
+
+    // Remove a book from a bookshelf
+    public Optional<Bookshelf> removeBookFromBookshelf(long bookshelfId, long bookId) {
+        Optional<Bookshelf> optionalBookshelf = bookshelfRepository.findById(bookshelfId);
+        if (optionalBookshelf.isPresent()) {
+            Bookshelf bookshelf = optionalBookshelf.get();
+            bookshelf.getBooks().removeIf(book -> book.getId() == bookId);
+            return Optional.of(bookshelfRepository.save(bookshelf));
+        }
+        return Optional.empty();
+    }
+
+    // explain the arrow (KhanZu) in this method
+
+    public void deleteBookshelf(long id) {
         bookshelfRepository.deleteById(id);
     }
 
 
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
