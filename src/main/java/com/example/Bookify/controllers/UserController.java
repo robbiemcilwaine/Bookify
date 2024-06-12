@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-//    Retrieve users
+//    Retrieve all users
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = userService.getAllUsers();
@@ -27,8 +27,7 @@ public class UserController {
     }
 
 
-//    Get users by id
-
+//    Get user by id
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<User>>getUserById(@PathVariable long id){
         Optional<User> user = userService.getUserById(id);
