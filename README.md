@@ -4,6 +4,48 @@
 The to-do list will have three models, User, Book and Bookshelf. A user can create personalised bookshelves (lists) tailored to a specific theme. For example,  “Holiday Reads”, “Textbook’s for next year”, “Sorting my life together” which could be a collection of self-help books. Within these bookshelves are book objects (to-do) that the user can add, update, remove and provide details. Such as title, author, genre…
 
 This system allows the user access to their bookshelves and associated books. It would include fields or attributes to indicate the status of each book (e.g., whether it's been read, is currently being read, or is intended for future reading) and potentially a priority level. Users could then categorise their books accordingly, helping them track their reading progress and prioritise their reading list effectively.
+
+## Tech Stack
+
+- **Java**
+- **Spring Boot**
+- **PostgreSQL**
+
+### How to run this API locally
+
+1. **Install PostgreSQL**
+   - Via Homebrew:
+     ```sh
+     brew install postgresql
+     ```
+   - Or via [Postgres.app](https://postgresapp.com)
+  
+2. **Create a database**
+   ```sh
+   createdb bookify_db
+
+3. **Clone this project**
+   to your computer and run main() in BookifyApplication
+
+4. **Postico**
+   You may wish to visualise the database in Postico
+
+5. **Postman**
+   Create models/ services / repositories.
+   You may wish to visualise the endpoints in Postman
+
+
+## API Designs
+
+## ERDs
+![image](https://github.com/ornerykiwi/Bookify/assets/111086837/f6afba0d-52b6-4d69-a14d-8fa227ff3706)
+
+
+
+## UML
+![image](https://github.com/ornerykiwi/Bookify/assets/111086837/cd0486f8-c0fb-4c59-8efc-7a3b82102477)
+
+  
 ## MVP
 
 ### Models:
