@@ -2,6 +2,7 @@ package com.example.Bookify.controllers;
 
 import com.example.Bookify.models.Book;
 import com.example.Bookify.models.Bookshelf;
+import com.example.Bookify.services.BookService;
 import com.example.Bookify.services.BookshelfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,9 @@ public class BookshelfController {
 
     @Autowired
     BookshelfService bookshelfService;
+
+    @Autowired
+    BookService bookService;
 
 //    Retrieve all bookshelves for a user
 
@@ -79,7 +83,13 @@ public class BookshelfController {
 
 //    Delete specific book by id from bookshelf
     @PatchMapping(value = "/{id}/books/{id}")
-    public ResponseEntity<Optional<Void>> deleteBookByIdFromBookshelf(@PathVariable long id, )
+    public ResponseEntity<Optional<Bookshelf>> removeBookFromBookshelf(@PathVariable long bookshelfId, @PathVariable long bookId){
+        Optional<Bookshelf> updatedBookshelf = bookshelfService.getBookshelfByID(bookshelfId);
+        Optional<Book> removedBook = bookService.getBookById(bookId);
+        if(updatedBookshelf.isPresent() && removedBook.isPresent()){
+            Optional<Bookshelf> bookshelf = bookshelfService.removeBookFromBookshelf(bookshelfId, bookId);
+        }
+    }
 
 
 
