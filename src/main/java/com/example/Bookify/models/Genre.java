@@ -10,11 +10,8 @@ public enum Genre {
     HISTORY,
     ROMANCE,
     HORROR,
-    SELF_HELP
-
-
-
-
+    SELF_HELP,
+    SCIENCE_FICTION
 
 
 
