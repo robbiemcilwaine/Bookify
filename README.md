@@ -9,7 +9,7 @@ This system allows the user access to their bookshelves and associated books. It
 ### Models:
 - Book: Represents a book with properties such as title, author, ISBN, publication year, genre, and rating.
 - Bookshelf: Represents a user's bookshelf, which contains a list of books.
-- User: Represents a user who owns the bookshelf and can add many books to their bookshelf, as a list. Users can have multiple bookshelves eg, “Holiday Reads”, “Textbook’s for next year”, “Sorting my life together” which would be a collection of self-help books.
+- User: Represents a user who owns the bookshelf and can add many books to their bookshelf, as a list. Users can have multiple bookshelves.
 
 ### Bookshelf
 
