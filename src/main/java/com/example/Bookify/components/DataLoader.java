@@ -66,8 +66,11 @@ public class DataLoader implements ApplicationRunner {
         User charisma = new User("CHRIMPY");
         userService.createUser(charisma);
         Book book6 = new Book("A Day of Fallen Night", "Samantha Shannon", "978-1-5266-1981-5", LocalDate.of(2023, 2, 28), 4.4, Genre.FANTASY);
+        Bookshelf bookshelf2 = new Bookshelf(charisma, "Charisma's bookshelf");
+        bookshelfService.createBookshelf(bookshelf2);
 
         bookService.createBook(book6);
+        bookshelfService.addBookToBookshelf(2, book6);
 
 
         User sabah = new User("Flakeymeerkat");

@@ -17,7 +17,6 @@ public class Book {
     @Column
     private long id;
 
-
     @Column
     private String title;
 
@@ -46,6 +45,7 @@ public class Book {
             name = "bookshelf_books",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "bookshelf_id")    )
+    @JsonIgnoreProperties({"books"})
     private List<Bookshelf> bookshelves;
 
 

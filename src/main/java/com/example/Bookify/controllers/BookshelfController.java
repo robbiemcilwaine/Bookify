@@ -5,10 +5,7 @@ import com.example.Bookify.services.BookshelfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,12 +27,21 @@ public class BookshelfController {
 
 
 //    Retrieve a specific bookshelf
-
-
-
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Optional<Bookshelf>> getBookShelfById(@PathVariable long id){
+        Optional<Bookshelf> bookshelf = bookshelfService.getBookshelfByID(id);
+        if (bookshelf.isPresent()){
+            return new ResponseEntity<>(bookshelf, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
 //    Create a new bookshelf
-
+    @PostMapping
+    public ResponseEntity<Bookshelf> createBookshelf(@RequestBody Bookshelf bookshelf){
+        Bookshelf savedBookshelf = bookshelfService.createBookshelf(bookshelf);
+        return new ResponseEntity<>(savedBookshelf, HttpStatus.CREATED);
+    }
 
 //   Add book to existing bookshelf
 
