@@ -17,9 +17,9 @@ This system allows the user access to their bookshelves and associated books. It
 | :-------------: |:-------------:| :-----:|
 | GET      | /users/{id}/bookshelves| Retrieve user’s associated bookshelves |
 | SHOW   | /bookshelves/{id} |  Retrieve a specific bookshelf |
-| CREATE/POST | /bookshelves| Add a new book to the bookshelf |
-|PATCH | /bookshelves/{id} | Add book (request body) to specific bookshelf|
-| UPDATE/PUT | /bookshelves/{id} | Update the details of a specific bookshelf |
+| CREATE/POST | /bookshelves| Create a new bookshelf |
+|PATCH | /bookshelves/{id} | Add book to existing bookshelf|
+| UPDATE/PATCH | /bookshelves/{id} | Update the name of a specific bookshelf |
 |DELETE |/bookshelves/{id}|Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)|
 
 ### Book
