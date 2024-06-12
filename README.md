@@ -15,7 +15,7 @@ This system allows the user access to their bookshelves and associated books. It
 
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| GET      | /users/{id}/bookshelves| Retrieve user’s associated bookshelves |
+| GET      | /users/{id}| Retrieve user’s associated bookshelves |
 | SHOW   | /bookshelves/{id} |  Retrieve a specific bookshelf |
 | CREATE/POST | /bookshelves| Create a new bookshelf |
 |PATCH | /bookshelves/{id} | Add book to existing bookshelf|
