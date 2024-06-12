@@ -22,9 +22,9 @@ public class BookService {
         return bookRepository.findById(id);
     }
 
-    public Book createBook(Book book){
-        return bookRepository.save(book);
-    }
+//    public Book createBook(Book book){
+//        return bookRepository.save(book);
+//    }
 
     public void deleteBook(long id){
         bookRepository.deleteById(id);

@@ -2,6 +2,7 @@ package com.example.Bookify.services;
 
 import com.example.Bookify.models.Book;
 import com.example.Bookify.models.Bookshelf;
+import com.example.Bookify.repositories.BookRepository;
 import com.example.Bookify.repositories.BookshelfRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ public class BookshelfService {
     @Autowired
     BookshelfRepository bookshelfRepository;
 
+    @Autowired
+    BookRepository bookRepository;
 
     //    Retrieve all bookshelves for a given user ID
     public List<Bookshelf> getBookshelvesByUserId(long userId) {
@@ -49,6 +52,7 @@ public class BookshelfService {
         if (optionalBookshelf.isPresent()) {
             Bookshelf bookshelf = optionalBookshelf.get();
             bookshelf.getBooks().add(book);
+            bookRepository.save(book);
             return Optional.of(bookshelfRepository.save(bookshelf));
         }
         return Optional.empty();

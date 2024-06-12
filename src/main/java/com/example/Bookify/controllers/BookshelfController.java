@@ -1,5 +1,6 @@
 package com.example.Bookify.controllers;
 
+import com.example.Bookify.models.Book;
 import com.example.Bookify.models.Bookshelf;
 import com.example.Bookify.services.BookshelfService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,14 @@ public class BookshelfController {
     }
 
 //   Add book to existing bookshelf
-    @PatchMapping(value = "/{id}")
+    @PostMapping(value = "/{id}")
+    public ResponseEntity<Optional<Bookshelf>> addBookToBookshelf(@PathVariable long id, @RequestBody Book book){
+        Optional<Bookshelf> updatedBookshelf = bookshelfService.addBookToBookshelf(id, book);
+        if (updatedBookshelf.isPresent()){
+            return new ResponseEntity<>(updatedBookshelf, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
 
 //    Update the name of a specific bookshelf

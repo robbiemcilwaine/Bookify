@@ -37,11 +37,11 @@ public class BookController {
     }
 
 //    Create new book
-    @PostMapping
-    public ResponseEntity<Book> createBook(@RequestBody Book book){
-        Book savedBook = bookService.createBook(book);
-        return new ResponseEntity<>(savedBook, HttpStatus.CREATED);
-    }
+//    @PostMapping
+//    public ResponseEntity<Book> createBook(@RequestBody Book book){
+//        Book savedBook = bookService.createBook(book);
+//        return new ResponseEntity<>(savedBook, HttpStatus.CREATED);
+//    }
 
 //    Delete a specific book
     @DeleteMapping(value = "/{id}")
