@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,10 +55,15 @@ public class BookshelfController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-
 //    Update the name of a specific bookshelf
-
-
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<Optional<Bookshelf>> updateBookshelfName(@PathVariable long id, @RequestParam String name){
+        Optional<Bookshelf> updatedBookshelfName = bookshelfService.updateBookshelfName(id, name);
+        if(updatedBookshelfName.isPresent()){
+            return new ResponseEntity<>(updatedBookshelfName, HttpStatus.OK);
+        }
+        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
 //    Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)
 

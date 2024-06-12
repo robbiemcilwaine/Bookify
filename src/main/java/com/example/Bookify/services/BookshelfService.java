@@ -7,6 +7,7 @@ import com.example.Bookify.repositories.BookshelfRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -36,11 +37,11 @@ public class BookshelfService {
     }
 
     //    Update an existing bookshelf
-    public Optional<Bookshelf> updateBookshelf(long id, Bookshelf updatedBookshelf) {
+    public Optional<Bookshelf> updateBookshelfName(long id, String name) {
         Optional<Bookshelf> optionalBookshelf = bookshelfRepository.findById(id);
         if (optionalBookshelf.isPresent()) {
             Bookshelf bookshelf = optionalBookshelf.get();
-            bookshelf.setName(updatedBookshelf.getName());
+            bookshelf.setName(name);
             return Optional.of(bookshelfRepository.save(bookshelf));
         }
         return Optional.empty();
