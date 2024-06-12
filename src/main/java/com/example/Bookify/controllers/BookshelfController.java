@@ -75,8 +75,12 @@ public class BookshelfController {
         }
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
-
     }
+
+//    Delete specific book by id from bookshelf
+    @PatchMapping(value = "/{id}/books/{id}")
+    public ResponseEntity<Optional<Void>> deleteBookByIdFromBookshelf(@PathVariable long id, )
+
 
 
 }

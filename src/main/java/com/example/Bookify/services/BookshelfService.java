@@ -64,13 +64,18 @@ public class BookshelfService {
         Optional<Bookshelf> optionalBookshelf = bookshelfRepository.findById(bookshelfId);
         if (optionalBookshelf.isPresent()) {
             Bookshelf bookshelf = optionalBookshelf.get();
-            bookshelf.getBooks().removeIf(book -> book.getId() == bookId);
+            List<Book> books = bookshelf.getBooks();
+            for (int i = 0; i < books.size(); i++) {
+                Book book = books.get(i);
+                if (book.getId() == bookId) {
+                    books.remove(i);
+                    break;
+                }
+            }
             return Optional.of(bookshelfRepository.save(bookshelf));
         }
         return Optional.empty();
     }
-
-    // explain the arrow (KhanZu) in this method
 
     public void deleteBookshelf(long id) {
         bookshelfRepository.deleteById(id);
