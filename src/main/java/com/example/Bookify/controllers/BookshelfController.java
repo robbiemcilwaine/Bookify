@@ -82,15 +82,21 @@ public class BookshelfController {
     }
 
 //    Delete specific book by id from bookshelf
-    @PatchMapping(value = "/{id}/books/{id}")
-    public ResponseEntity<Optional<Bookshelf>> removeBookFromBookshelf(@PathVariable long bookshelfId, @PathVariable long bookId){
-        Optional<Bookshelf> updatedBookshelf = bookshelfService.getBookshelfByID(bookshelfId);
-        Optional<Book> removedBook = bookService.getBookById(bookId);
-        if(updatedBookshelf.isPresent() && removedBook.isPresent()){
-            Optional<Bookshelf> bookshelf = bookshelfService.removeBookFromBookshelf(bookshelfId, bookId);
+    @PatchMapping(value = "/{id}/books/{bookId}")
+    public ResponseEntity<Bookshelf> removeBookFromBookshelf(@PathVariable long id, @PathVariable long bookId) { // id of bookshelf and id of book to remove
+        // call the bookshelfService to remove the book from the bookshelf
+        // the service method returns an Optional<Bookshelf> representing the updated bookshelf
+        Optional<Bookshelf> optionalUpdatedBookshelf = bookshelfService.removeBookFromBookshelf(id, bookId);
+        if (optionalUpdatedBookshelf.isPresent()) {
+            // if the Optional contains a value e.g. the book was successfully removed
+            // return a ResponseEntity with the updated bookshelf and a HTTPStatus code of OK (200)
+            return new ResponseEntity<>(optionalUpdatedBookshelf.get(), HttpStatus.OK);
+        } else {
+            // if the Optional is empty e.g. the bookshelf or the book was not found
+            // return a ResponseEntity with an HTTP status of NOT_FOUND (404)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-
-
 }
+
