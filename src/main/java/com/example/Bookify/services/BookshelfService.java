@@ -49,6 +49,7 @@ public class BookshelfService {
             List<Book> books = bookshelf.getBooks();
             if (books == null) {
                 books = new ArrayList<>();
+            }
 
 
                 // add a book to that bookshelf
@@ -66,11 +67,9 @@ public class BookshelfService {
             }
 
             // if the bookshelf isn't found, return an empty Optional
-            else return Optional.empty();
+             return Optional.empty();
 
         }
-
-        return optionalBookshelf;
     }
 
     public void deleteBookshelf(Long id) {
