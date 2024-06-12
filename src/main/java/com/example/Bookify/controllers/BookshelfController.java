@@ -66,6 +66,17 @@ public class BookshelfController {
     }
 
 //    Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Optional<Void>> deleteBookshelfById(@PathVariable long id){
+        Optional<Bookshelf> deletedBookshelf = bookshelfService.getBookshelfByID(id);
+        if(deletedBookshelf.isPresent()){
+            bookshelfService.deleteBookshelf(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+
+    }
 
 
 }
