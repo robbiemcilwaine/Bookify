@@ -27,7 +27,7 @@ public class Bookshelf {
             name = "bookshelf_books",
             joinColumns = @JoinColumn(name = "bookshelf_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id")    )
-    @JsonIgnoreProperties("{bookshelves}")
+    @JsonIgnoreProperties({"bookshelves"})
     private List<Book> books;
 
 //    @OneToMany(mappedBy = "bookshelves")
