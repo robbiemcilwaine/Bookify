@@ -27,13 +27,13 @@ public class Bookshelf {
             name = "bookshelf_books",
             joinColumns = @JoinColumn(name = "bookshelf_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id")    )
+    @JsonIgnoreProperties("{bookshelves}")
     private List<Book> books;
 
 //    @OneToMany(mappedBy = "bookshelves")
 //    @JoinColumn(name = "bookshelves_id")
 //
-//    @JsonIgnoreProperties("{bookshelves}")
-//    private List<Book> books;
+
 
 
     public Bookshelf(User user, String name) {

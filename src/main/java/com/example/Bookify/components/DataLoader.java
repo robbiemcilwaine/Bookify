@@ -1,6 +1,7 @@
 package com.example.Bookify.components;
 
 import com.example.Bookify.models.Book;
+import com.example.Bookify.models.Bookshelf;
 import com.example.Bookify.models.Genre;
 import com.example.Bookify.models.User;
 import com.example.Bookify.repositories.UserRepository;
@@ -13,6 +14,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -23,12 +26,17 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     BookService bookService;
 
+    @Autowired
+    BookshelfService bookshelfService;
+
+
 
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         User robbie = new User("Zinizanzo");
         userService.createUser(robbie);
+
 
         Book book1 = new Book("To Kill a Mockingbird", "Harper Lee", "978-0-06-112008-4", LocalDate.of(1960, 7, 11), 4.28, Genre.FICTION);
         Book book2 = new Book("1984", "George Orwell", "978-0-452-28423-4", LocalDate.of(1949, 6, 8), 4.17, Genre.SCIENCE_FICTION);
@@ -41,6 +49,19 @@ public class DataLoader implements ApplicationRunner {
         bookService.createBook(book3);
         bookService.createBook(book4);
         bookService.createBook(book5);
+
+        List<Book> robbieBooks = new ArrayList<>();
+
+        Bookshelf bookshelf1 = new Bookshelf(robbie,"Robbie's Bookshelf");
+
+
+        bookshelfService.createBookshelf(bookshelf1);
+        bookshelfService.addBookToBookshelf(1,book1);
+        bookshelfService.addBookToBookshelf(1,book2);
+        bookshelfService.addBookToBookshelf(1,book3);
+        bookshelfService.addBookToBookshelf(1,book4);
+        bookshelfService.addBookToBookshelf(1,book5);
+
 
         User charisma = new User("CHRIMPY");
         userService.createUser(charisma);
@@ -56,6 +77,9 @@ public class DataLoader implements ApplicationRunner {
 
         bookService.createBook(book7);
         bookService.createBook(book8);
+
+
+
 
 
 
