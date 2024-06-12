@@ -21,6 +21,7 @@ This system allows the user access to their bookshelves and associated books. It
 |PATCH | /bookshelves/{id} | Add book to existing bookshelf|
 | UPDATE/PATCH | /bookshelves/{id} | Update the name of a specific bookshelf |
 |DELETE |/bookshelves/{id}|Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)|
+|DELETE |/bookshelves/{id}/books/{id}|Delete specific book from a bookshelf|
 
 ### Book
 
