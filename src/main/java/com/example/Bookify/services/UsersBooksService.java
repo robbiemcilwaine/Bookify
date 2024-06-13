@@ -27,8 +27,12 @@ public class UsersBooksService {
 //        Optional<UsersBooks> optionalUsersBooks = UsersBooksRepository.findById(id);
 //        if (optionalUsersBooks.isPresent()) {
 //            UsersBooks usersBooks = optionalUsersBooks.get();
-//            UsersBooks.set
-//        }
+//           return Optional.of(usersBooks);}
+//         else {
+//        return Optional.empty();
+//    }
+//            }
+
 //
 //    }
 
