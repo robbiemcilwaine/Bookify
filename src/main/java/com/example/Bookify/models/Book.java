@@ -37,7 +37,7 @@ public class Book {
 
 
     @OneToMany(mappedBy = "book")
-    @JsonIgnoreProperties({"books"})
+    @JsonIgnoreProperties({"book"})
     private List<UsersBooks> usersBooks;
 
     @ManyToMany
@@ -45,7 +45,7 @@ public class Book {
             name = "bookshelf_books",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "bookshelf_id")    )
-    @JsonIgnoreProperties({"books"})
+    @JsonIgnoreProperties({"books", "user"})
     private List<Bookshelf> bookshelves;
 
 

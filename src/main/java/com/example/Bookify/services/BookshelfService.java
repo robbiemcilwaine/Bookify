@@ -21,6 +21,9 @@ public class BookshelfService {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    BookService bookService;
+
     //    Retrieve all bookshelves for a given user ID
     public List<Bookshelf> getBookshelvesByUserId(long userId) {
         return bookshelfRepository.findByUserId(userId);
@@ -77,7 +80,14 @@ public class BookshelfService {
         return Optional.empty();
     }
 
+// Delete a specific bookshelf and its associated books (due to the many-to-many relationship)
     public void deleteBookshelf(long id) {
+        Bookshelf bookshelf = getBookshelfByID(id).get();
+        for (Book book : bookshelf.getBooks()) {
+            bookService.deleteBook(book.getId());
+
+        }
+
         bookshelfRepository.deleteById(id);
     }
 

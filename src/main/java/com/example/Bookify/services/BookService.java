@@ -1,6 +1,7 @@
 package com.example.Bookify.services;
 
 import com.example.Bookify.models.Book;
+import com.example.Bookify.models.UsersBooks;
 import com.example.Bookify.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,9 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    UsersBooksService usersBooksService;
+
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
     }
@@ -26,7 +30,13 @@ public class BookService {
 //        return bookRepository.save(book);
 //    }
 
+
+//    delete a book by specific id
     public void deleteBook(long id){
+        Book book = getBookById(id).get();
+        for (UsersBooks usersBooks : book.getUsersBooks()) {
+            usersBooksService.deleteUserBook(usersBooks.getId());
+        }
         bookRepository.deleteById(id);
     }
 
