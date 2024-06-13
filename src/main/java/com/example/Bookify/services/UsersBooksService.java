@@ -20,18 +20,28 @@ public class UsersBooksService {
     @Autowired
     UsersBooksRepository usersBooksRepository;
 
+//    get all users books
+    public List<UsersBooks> getAllUsersBooks(){
+        return usersBooksRepository.findAll();
+    }
+
+    public Optional<UsersBooks> getUsersBooksById(long id){
+        return usersBooksRepository.findById(id);
+    }
 
     //    Updating reading status
 
-//    public Optional <UsersBooks> updateReadingStatus (long id, ReadingStatus){
-//        Optional<UsersBooks> optionalUsersBooks = UsersBooksRepository.findById(id);
-//        if (optionalUsersBooks.isPresent()) {
-//            UsersBooks usersBooks = optionalUsersBooks.get();
-//           return Optional.of(usersBooks);}
-//         else {
-//        return Optional.empty();
-//    }
-//            }
+    public Optional <UsersBooks> updateReadingStatus (long id, ReadingStatus readingStatus){
+        Optional<UsersBooks> optionalUsersBooks = usersBooksRepository.findById(id);
+        if (optionalUsersBooks.isPresent()) {
+            UsersBooks usersBooks = optionalUsersBooks.get();
+            usersBooks.setReadingStatus(readingStatus);
+            usersBooksRepository.save(usersBooks);
+            return Optional.of(usersBooks);}
+         else {
+            return Optional.empty();
+        }
+    }
 
 //
 //    }

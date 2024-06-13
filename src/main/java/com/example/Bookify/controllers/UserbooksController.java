@@ -1,18 +1,42 @@
 package com.example.Bookify.controllers;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.Bookify.models.ReadingStatus;
+import com.example.Bookify.models.UsersBooks;
+import com.example.Bookify.services.UsersBooksService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/users_books")
+@RequestMapping("/users-books")
 public class UserbooksController {
 
+    @Autowired
+    UsersBooksService usersBooksService;
+
     //    Retrieve all users books
-//
-//    @GetMapping
-//    public
+    @GetMapping
+    public ResponseEntity<List<UsersBooks>> getAllUsersBooks(){
+        List<UsersBooks> usersBooks = usersBooksService.getAllUsersBooks();
+        return new ResponseEntity<>(usersBooks, HttpStatus.OK);
+    }
+
+//    update reading status of specific book
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<Optional<UsersBooks>> updateReadingStatus(@PathVariable long id, @RequestParam ReadingStatus readingStatus){
+        Optional<UsersBooks> usersBooks = usersBooksService.getUsersBooksById(id);
+        if (usersBooks.isPresent()){
+            usersBooksService.updateReadingStatus(id, readingStatus);
+
+            return new ResponseEntity<>(usersBooks, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
 
 }

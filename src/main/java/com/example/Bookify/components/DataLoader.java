@@ -1,11 +1,9 @@
 package com.example.Bookify.components;
 
-import com.example.Bookify.models.Book;
-import com.example.Bookify.models.Bookshelf;
-import com.example.Bookify.models.Genre;
-import com.example.Bookify.models.User;
+import com.example.Bookify.models.*;
 import com.example.Bookify.repositories.BookRepository;
 import com.example.Bookify.repositories.UserRepository;
+import com.example.Bookify.repositories.UsersBooksRepository;
 import com.example.Bookify.services.BookService;
 import com.example.Bookify.services.BookshelfService;
 import com.example.Bookify.services.UserService;
@@ -32,6 +30,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    UsersBooksRepository usersBooksRepository;
 
 
     @Override
@@ -83,7 +84,10 @@ public class DataLoader implements ApplicationRunner {
         bookRepository.save(book7);
         bookRepository.save(book8);
 
+//        ReadingStatus readingStatusSabah = ReadingStatus.CURRENTLY_READING;
 
+        UsersBooks newUsersBook = new UsersBooks(sabah, book8);
+        usersBooksRepository.save(newUsersBook);
 
 
 

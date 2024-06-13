@@ -1,5 +1,6 @@
 package com.example.Bookify.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,19 +13,21 @@ public class UsersBooks {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties({"usersBooks"})
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
+    @JsonIgnoreProperties({"usersBooks"})
     private Book book;
 
     @Enumerated(EnumType.STRING)
     private ReadingStatus readingStatus;
 
-    public UsersBooks(User user, Book book, ReadingStatus readingStatus) {
+    public UsersBooks(User user, Book book) {
         this.user = user;
         this.book = book;
-        this.readingStatus = readingStatus;
+        this.readingStatus = ReadingStatus.TO_READ;
     }
 
     public UsersBooks() {
