@@ -28,14 +28,14 @@ https://trello.com/b/NlJeK8qk/backend-project
    createdb bookify_db
 
 3. **Fork repository**
-   to your computer and run main() in BookifyApplication
+   To your computer and run main() in BookifyApplication
 
 4. **Postico**
-   You may wish to visualise the database in Postico
+   You may wish to visualise the database in Postico once the database is created.
 
 5. **Postman**
    Create models/ services / repositories.
-   You may wish to visualise the endpoints in Postman
+   You may wish to visualise the endpoints in Postman using the JSON segments.
 
 
 ## API Designs
