@@ -36,12 +36,6 @@ public class BookController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-//    Create new book
-//    @PostMapping
-//    public ResponseEntity<Book> createBook(@RequestBody Book book){
-//        Book savedBook = bookService.createBook(book);
-//        return new ResponseEntity<>(savedBook, HttpStatus.CREATED);
-//    }
 
 //    Delete a specific book
     @DeleteMapping(value = "/{id}")
