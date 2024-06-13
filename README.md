@@ -76,7 +76,7 @@ https://trello.com/b/NlJeK8qk/backend-project
 | SHOW | localhost:8080/books/{id} | Retrieve a specific book by its ID |
 | INDEX | localhost:8080/books | Retrieve all books |
 | ~~UPDATE/PUT~~ | ~~localhost:8080/books/{id}~~ | ~~Update the details of a specific book~~ |
-|**DELETE**|**localhost:8080/books/{id}**| **Delete a specific book** |
+|DELETE|localhost:8080/books/{id}| Delete a specific book |
 
 
 ### User
@@ -92,6 +92,9 @@ https://trello.com/b/NlJeK8qk/backend-project
 ### UsersBooks
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
+| GET | localhost:8080/users-books | Retrieve usersbooks|
+| GET| localhost:8080/users-books/{id}| Get usersbooks by id |
+| GET| localhost:8080/users-books/{id}| Get a specific users usersbooks |
 | UPDATE/PATCH | localhost:8080/books/{id} | Update reading status |
 
 ## Extension Key Functionality

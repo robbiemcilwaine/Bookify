@@ -1,6 +1,7 @@
 package com.example.Bookify.controllers;
 
 
+import com.example.Bookify.models.Book;
 import com.example.Bookify.models.ReadingStatus;
 import com.example.Bookify.models.UsersBooks;
 import com.example.Bookify.services.UsersBooksService;
@@ -26,10 +27,24 @@ public class UsersBooksController {
         return new ResponseEntity<>(usersBooks, HttpStatus.OK);
     }
 
+<<<<<<< HEAD
 //   Get a specific users book
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<UsersBooks>> getUsersBooksById(@PathVariable long id){
+=======
+//   Get a specific users books
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Optional<List<UsersBooks>>> getSpecificUsersBooks(@PathVariable long id){
+        Optional<List<UsersBooks>> specificUsersBooks = usersBooksService.getSpecificUsersBooks(id);
+        return new ResponseEntity<>(specificUsersBooks, HttpStatus.OK);
+    }
+
+    //   Get a single book from a specific user
+    @GetMapping(value = "/{id}/{bookId}")
+    public ResponseEntity<Optional<UsersBooks>> getUsersBooksById(@PathVariable long id, @PathVariable long bookId){
+>>>>>>> ba1448f9b8d1bf594abe23e68bb593828ca6af23
         Optional<UsersBooks> userbook = usersBooksService.getUsersBooksById(id);
+        Optional<List<UsersBooks>> aUsersBook = usersBooksService.getSpecificUsersBooks(bookId);
         return new ResponseEntity<>(userbook, HttpStatus.OK);
     }
 

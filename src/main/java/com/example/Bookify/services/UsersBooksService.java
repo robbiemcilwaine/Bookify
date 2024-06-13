@@ -10,6 +10,7 @@ import com.example.Bookify.repositories.UsersBooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,9 @@ public class UsersBooksService {
     @Autowired
     UsersBooksRepository usersBooksRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
 //    get all users books
     public List<UsersBooks> getAllUsersBooks(){
         return usersBooksRepository.findAll();
@@ -27,6 +31,16 @@ public class UsersBooksService {
 
     public Optional<UsersBooks> getUsersBooksById(long id){
         return usersBooksRepository.findById(id);
+    }
+
+//    get all a specific users books
+    public Optional<List<UsersBooks>> getSpecificUsersBooks(long id){
+        Optional<User> optionalUser = userRepository.findById(id);
+        if(optionalUser.isPresent()){
+            List<UsersBooks> usersBooks = optionalUser.get().getUsersBooks();
+            return Optional.of(usersBooks);
+        }
+        else return Optional.empty();
     }
 
     //    Updating reading status

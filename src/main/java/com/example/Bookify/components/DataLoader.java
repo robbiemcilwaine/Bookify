@@ -65,6 +65,13 @@ public class DataLoader implements ApplicationRunner {
         bookshelfService.addBookToBookshelf(1,book4);
         bookshelfService.addBookToBookshelf(1,book5);
 
+        UsersBooks newUsersBook2 = new UsersBooks(robbie, book1);
+        usersBooksRepository.save(newUsersBook2);
+        UsersBooks newUsersBook3 = new UsersBooks(robbie, book2);
+        usersBooksRepository.save(newUsersBook3);
+        UsersBooks newUsersBook4 = new UsersBooks(robbie, book3);
+        usersBooksRepository.save(newUsersBook4);
+
 
         User charisma = new User("CHRIMPY");
         userService.createUser(charisma);
@@ -74,6 +81,9 @@ public class DataLoader implements ApplicationRunner {
 
         bookRepository.save(book6);
         bookshelfService.addBookToBookshelf(2, book6);
+
+        UsersBooks newUsersBook1 = new UsersBooks(charisma, book6);
+        usersBooksRepository.save(newUsersBook1);
 
 
         User sabah = new User("Flakeymeerkat");
