@@ -5,6 +5,9 @@ The to-do list will have three models, User, Book and Bookshelf. A user can crea
 
 This system allows the user access to their bookshelves and associated books. It would include fields or attributes to indicate the status of each book (e.g., whether it's been read, is currently being read, or is intended for future reading) and potentially a priority level. Users could then categorise their books accordingly, helping them track their reading progress and prioritise their reading list effectively.
 
+## Trello Board
+https://trello.com/b/NlJeK8qk/backend-project
+
 ## Tech Stack
 
 - **Java**
@@ -46,7 +49,7 @@ This system allows the user access to their bookshelves and associated books. It
 ![image](https://github.com/ornerykiwi/Bookify/assets/111086837/cd0486f8-c0fb-4c59-8efc-7a3b82102477)
 
   
-## MVP
+## MVP Key Functionality
 
 ### Models:
 - Book: Represents a book with properties such as title, author, ISBN, publication year, genre, and rating.
@@ -91,4 +94,4 @@ This system allows the user access to their bookshelves and associated books. It
 | :-------------: |:-------------:| :-----:|
 | UPDATE/PATCH | localhost:8080/books/{id} | Update reading status |
 
-## Extensions
+## Extension Key Functionality
