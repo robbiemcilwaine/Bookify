@@ -13,12 +13,12 @@ public class UsersBooks {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties({"usersBooks"})
+    @JsonIgnoreProperties({"usersBooks", "bookshelves"})
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
-    @JsonIgnoreProperties({"usersBooks"})
+    @JsonIgnoreProperties({"usersBooks", "bookshelves"})
     private Book book;
 
     @Enumerated(EnumType.STRING)
