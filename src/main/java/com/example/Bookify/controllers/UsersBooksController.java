@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/users-books")
-public class UserbooksController {
+public class UsersBooksController {
 
     @Autowired
     UsersBooksService usersBooksService;
@@ -24,6 +24,13 @@ public class UserbooksController {
     public ResponseEntity<List<UsersBooks>> getAllUsersBooks(){
         List<UsersBooks> usersBooks = usersBooksService.getAllUsersBooks();
         return new ResponseEntity<>(usersBooks, HttpStatus.OK);
+    }
+
+//   Get a specific users book
+    @GetMapping
+    public ResponseEntity<Optional<UsersBooks>> getUsersBooksById(@PathVariable long id){
+        Optional<UsersBooks> userbook = usersBooksService.getUsersBooksById(id);
+        return new ResponseEntity<>(userbook, HttpStatus.OK);
     }
 
 //    update reading status of specific book
