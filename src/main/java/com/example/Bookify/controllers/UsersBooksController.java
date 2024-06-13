@@ -27,7 +27,7 @@ public class UsersBooksController {
     }
 
 //   Get a specific users book
-    @GetMapping
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<UsersBooks>> getUsersBooksById(@PathVariable long id){
         Optional<UsersBooks> userbook = usersBooksService.getUsersBooksById(id);
         return new ResponseEntity<>(userbook, HttpStatus.OK);
