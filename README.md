@@ -57,38 +57,38 @@ This system allows the user access to their bookshelves and associated books. It
 
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| GET      | /users/{id}| Retrieve user’s associated bookshelves |
-| SHOW   | /bookshelves/{id} |  Retrieve a specific bookshelf |
-| CREATE/POST | /bookshelves| Create a new bookshelf |
-|PATCH | /bookshelves/{id} | Add book to existing bookshelf|
-| UPDATE/PATCH | /bookshelves/{id} | Update the name of a specific bookshelf |
-|DELETE |/bookshelves/{id}|Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)|
-|DELETE |/bookshelves/{id}/books/{id}|Delete specific book from a bookshelf|
+| GET      | localhost:8080/users/{id}| Retrieve user’s associated bookshelves |
+| SHOW   | localhost:8080/bookshelves/{id} |  Retrieve a specific bookshelf |
+| CREATE/POST | localhost:8080/bookshelves| Create a new bookshelf |
+|PATCH | localhost:8080/bookshelves/{id} | Add book to existing bookshelf|
+| UPDATE/PATCH | localhost:8080/bookshelves/{id} | Update the name of a specific bookshelf |
+|DELETE |localhost:8080/bookshelves/{id}|Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)|
+|DELETE |localhost:8080/bookshelves/{id}/books/{id}|Delete specific book from a bookshelf|
 
 ### Book
 
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| INDEX/GET/ | /books | Get all books in all the collections (this could be something in the extension as a family plan) |
-| SHOW | /books/{id} | Retrieve a specific book by its ID |
-| INDEX | /books | Retrieve all books |
-| ~~UPDATE/PUT~~ | ~~/books/{id}~~ | ~~Update the details of a specific book~~ |
-|**DELETE**|**/books/{id}**| **Delete a specific book** |
+| INDEX/GET/ | localhost:8080/books | Get all books in all the collections (this could be something in the extension as a family plan) |
+| SHOW | localhost:8080/books/{id} | Retrieve a specific book by its ID |
+| INDEX | localhost:8080/books | Retrieve all books |
+| ~~UPDATE/PUT~~ | ~~localhost:8080/books/{id}~~ | ~~Update the details of a specific book~~ |
+|**DELETE**|**localhost:8080/books/{id}**| **Delete a specific book** |
 
 
 ### User
 
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| GET | /users | Retrieve users|
-| GET| /users/{id}| Get user by id |
-|PUT | /users/{id} | Update the details of a specific user|
-|POST|/users | Create a new user |
-|DELETE|/users/{id}| Delete a specific user |
+| GET | localhost:8080/users | Retrieve users|
+| GET| localhost:8080/users/{id}| Get user by id |
+|PUT | localhost:8080/users/{id} | Update the details of a specific user|
+|POST|localhost:8080/users | Create a new user |
+|DELETE|localhost:8080/users/{id}| Delete a specific user |
 
 ### UsersBooks
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| UPDATE/PATCH | /books/{id} | Update reading status |
+| UPDATE/PATCH | localhost:8080/books/{id} | Update reading status |
 
 ## Extensions
