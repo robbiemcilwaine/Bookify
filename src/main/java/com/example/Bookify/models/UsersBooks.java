@@ -27,7 +27,7 @@ public class UsersBooks {
     public UsersBooks(User user, Book book) {
         this.user = user;
         this.book = book;
-        this.readingStatus = ReadingStatus.TO_READ;
+        this.readingStatus = ReadingStatus.UNASSIGNED;
     }
 
     public UsersBooks() {
