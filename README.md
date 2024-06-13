@@ -24,7 +24,7 @@ This system allows the user access to their bookshelves and associated books. It
    ```sh
    createdb bookify_db
 
-3. **Clone this project**
+3. **Fork repository**
    to your computer and run main() in BookifyApplication
 
 4. **Postico**
