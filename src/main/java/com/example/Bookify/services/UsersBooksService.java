@@ -43,7 +43,15 @@ public class UsersBooksService {
         else return Optional.empty();
     }
 
-    //    Updating reading status
+
+//    get a single book for a specific users books
+    public UsersBooks findByUserIdAndBookId(Long userId, Long bookId) {
+        Optional<UsersBooks> usersBooksOptional = usersBooksRepository.findByUserIdAndBookId(userId, bookId);
+        return usersBooksOptional.orElse(null);
+    }
+
+
+//    Updating reading status
 
     public Optional <UsersBooks> updateReadingStatus (long id, ReadingStatus readingStatus){
         Optional<UsersBooks> optionalUsersBooks = usersBooksRepository.findById(id);
@@ -56,6 +64,8 @@ public class UsersBooksService {
             return Optional.empty();
         }
     }
+
+
 
 //
 //    }

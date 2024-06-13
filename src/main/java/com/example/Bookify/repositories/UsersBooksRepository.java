@@ -5,7 +5,11 @@ import com.example.Bookify.models.UsersBooks;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UsersBooksRepository extends JpaRepository <UsersBooks, Long> {
-    List<UsersBooks>findByReadingStatus(ReadingStatus readingStatus);
+    List<UsersBooks> findByReadingStatus(ReadingStatus readingStatus);
+
+    Optional<UsersBooks> findByUserIdAndBookId(Long userId, Long bookId);
+
 }

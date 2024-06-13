@@ -3,6 +3,7 @@ package com.example.Bookify.controllers;
 
 import com.example.Bookify.models.Book;
 import com.example.Bookify.models.ReadingStatus;
+import com.example.Bookify.models.User;
 import com.example.Bookify.models.UsersBooks;
 import com.example.Bookify.services.UsersBooksService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +36,14 @@ public class UsersBooksController {
     }
 
     //   Get a single book from a specific user
-    @GetMapping(value = "/{id}/{bookId}")
-    public ResponseEntity<Optional<UsersBooks>> getUsersBooksById(@PathVariable long id, @PathVariable long bookId){
-        Optional<UsersBooks> userbook = usersBooksService.getUsersBooksById(id);
-        Optional<List<UsersBooks>> aUsersBook = usersBooksService.getSpecificUsersBooks(bookId);
-        return new ResponseEntity<>(userbook, HttpStatus.OK);
+    @GetMapping("/{userId}/{bookId}")
+    public ResponseEntity<UsersBooks> getUsersBooksByUserIdAndBookId(@PathVariable Long userId, @PathVariable Long bookId) {
+        UsersBooks usersBook = usersBooksService.findByUserIdAndBookId(userId, bookId);
+        if (usersBook != null) {
+            return new ResponseEntity<>(usersBook, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 //    update reading status of specific book
