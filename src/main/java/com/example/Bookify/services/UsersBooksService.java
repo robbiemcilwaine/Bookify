@@ -66,34 +66,4 @@ public class UsersBooksService {
     }
 
 
-
-//
-//    }
-
-
-
-
-
-    //    find by reading status
-
-
-
-
-
-
-//    public UsersBooks getReadingStatus (long id, ReadingStatus readingStatus) {
-//
-//
-//        List<UsersBooks>usersBooks = usersBooksRepository.findByReadingStatus();
-//
-//        usersBooks.setReadingStatus(readingStatus);
-//        return
-//
-//    }
-
-
-
-
-
-
 }
