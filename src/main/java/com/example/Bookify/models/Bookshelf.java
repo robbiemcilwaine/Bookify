@@ -20,7 +20,7 @@ public class Bookshelf {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties({"bookshelves"})
+    @JsonIgnoreProperties({"bookshelves", "usersBooks"})
     private User user;
 
     @ManyToMany
