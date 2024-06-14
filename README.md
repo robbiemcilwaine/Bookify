@@ -60,19 +60,18 @@ https://trello.com/b/NlJeK8qk/backend-project
 
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| GET      | localhost:8080/users/{id}| Retrieve user’s associated bookshelves |
+| GET      | localhost:8080/users/{id}| Retrieve all of a user’s associated bookshelves |
 | SHOW   | localhost:8080/bookshelves/{id} |  Retrieve a specific bookshelf |
 | CREATE/POST | localhost:8080/bookshelves| Create a new bookshelf |
-|PATCH | localhost:8080/bookshelves/{id} | Add book to existing bookshelf|
+|PATCH | localhost:8080/bookshelves/{id} | Add a book to an existing bookshelf|
 | UPDATE/PATCH | localhost:8080/bookshelves/{id} | Update the name of a specific bookshelf |
-|DELETE |localhost:8080/bookshelves/{id}|Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)|
-|DELETE |localhost:8080/bookshelves/{id}/books/{id}|Delete specific book from a bookshelf|
+|DELETE |localhost:8080/bookshelves/{id}|Delete a specific bookshelf|
+|DELETE |localhost:8080/bookshelves/{id}/books/{id}|Delete a specific book from a bookshelf|
 
 ### Book
 
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| INDEX/GET/ | localhost:8080/books | Get all books in all the collections (this could be something in the extension as a family plan) |
 | SHOW | localhost:8080/books/{id} | Retrieve a specific book by its ID |
 | INDEX | localhost:8080/books | Retrieve all books |
 | ~~UPDATE/PUT~~ | ~~localhost:8080/books/{id}~~ | ~~Update the details of a specific book~~ |
@@ -83,8 +82,8 @@ https://trello.com/b/NlJeK8qk/backend-project
 
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| GET | localhost:8080/users | Retrieve users|
-| GET| localhost:8080/users/{id}| Get user by id |
+| GET | localhost:8080/users | Retrieve all users|
+| GET| localhost:8080/users/{id}| Get a specific user |
 |PUT | localhost:8080/users/{id} | Update the details of a specific user|
 |POST|localhost:8080/users | Create a new user |
 |DELETE|localhost:8080/users/{id}| Delete a specific user |
@@ -92,8 +91,8 @@ https://trello.com/b/NlJeK8qk/backend-project
 ### UsersBooks
 | Endpoints        | URLs           | Description  |
 | :-------------: |:-------------:| :-----:|
-| GET | localhost:8080/users-books | Retrieve usersbooks|
-| GET| localhost:8080/users-books/{id}| Get usersbooks by id |
+| GET | localhost:8080/users-books | Retrieve all usersbooks|
+| GET| localhost:8080/users-books/{id}| Get a specific usersbooks |
 | GET| localhost:8080/users-books/{id}| Get a specific users usersbooks |
 | UPDATE/PATCH | localhost:8080/books/{id} | Update reading status |
 
