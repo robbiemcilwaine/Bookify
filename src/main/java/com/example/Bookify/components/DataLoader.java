@@ -70,14 +70,14 @@ public class DataLoader implements ApplicationRunner {
         bookshelfService.addBookToBookshelf(2,youAreABadass);
 
 
-        Book book5 = new Book("Pride and Prejudice", "Jane Austen", "978-0-19-280238-5", LocalDate.of(1813, 1, 28), 4.26, Genre.ROMANCE);
-        bookRepository.save(book5);
-        bookshelfService.addBookToBookshelf(1,book5);
+//        Book book5 = new Book("Pride and Prejudice", "Jane Austen", "978-0-19-280238-5", LocalDate.of(1813, 1, 28), 4.26, Genre.ROMANCE);
+//        bookRepository.save(book5);
+//        bookshelfService.addBookToBookshelf(1,book5);
 
 //        Charisma's book
         Book book6 = new Book("A Day of Fallen Night", "Samantha Shannon", "978-1-5266-1981-5", LocalDate.of(2023, 2, 28), 4.4, Genre.FANTASY);
         bookRepository.save(book6);
-        bookshelfService.addBookToBookshelf(2, book6);
+        bookshelfService.addBookToBookshelf(3, book6);
 
         Book book7 = new Book("The Hobbit", "J.R.R. Tolkien", "978-0-618-00221-3", LocalDate.of(1937, 9, 21), 4.27, Genre.FANTASY);
         bookRepository.save(book7);
