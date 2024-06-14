@@ -65,7 +65,7 @@ public class UsersBooksService {
         }
     }
 
-//    delete usersbooks by id
+//    delete usersBooks by id
 
     public void deleteUserBook(long id) {
         usersBooksRepository.deleteById(id);
