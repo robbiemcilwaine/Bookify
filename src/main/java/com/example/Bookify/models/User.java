@@ -22,7 +22,7 @@ public class User {
     private List<UsersBooks> usersBooks;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnoreProperties({"user"})
+    @JsonIgnoreProperties({"user", "usersBooks"})
     private List<Bookshelf> bookshelves;
 
     public User(String username) {
