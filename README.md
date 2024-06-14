@@ -95,5 +95,3 @@ https://trello.com/b/NlJeK8qk/backend-project
 | GET| localhost:8080/users-books/{id}| Get a specific usersbooks |
 | GET| localhost:8080/users-books/{id}| Get a specific users usersbooks |
 | UPDATE/PATCH | localhost:8080/books/{id} | Update reading status |
-
-## Extension Key Functionality
