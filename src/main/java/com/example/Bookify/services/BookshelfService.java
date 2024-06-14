@@ -84,10 +84,8 @@ public class BookshelfService {
     public void deleteBookshelf(long id) {
         Bookshelf bookshelf = getBookshelfByID(id).get();
         for (Book book : bookshelf.getBooks()) {
-            bookService.deleteBook(book.getId());
-
+            removeBookFromBookshelf(id, book.getId());
         }
-
         bookshelfRepository.deleteById(id);
     }
 

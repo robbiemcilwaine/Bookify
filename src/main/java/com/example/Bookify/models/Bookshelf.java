@@ -35,8 +35,6 @@ public class Bookshelf {
 //    @JoinColumn(name = "bookshelves_id")
 //
 
-
-
     public Bookshelf(User user, String name) {
         this.user = user;
         this.name = name;
