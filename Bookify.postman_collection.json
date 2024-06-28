@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "484a3407-f38f-4b98-91f8-45c41a5eb9ec",
+		"_postman_id": "7f971362-b7f8-498e-acb7-3907d8ba17e1",
 		"name": "Bookify",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34617872"
+		"_exporter_id": "34601382",
+		"_collection_link": "https://rezsolt-7060.postman.co/workspace/Re.Zsolt-Workspace~8c12bd62-0176-4130-844e-0811c1b28840/collection/34617872-7f971362-b7f8-498e-acb7-3907d8ba17e1?action=share&source=collection_link&creator=34601382"
 	},
 	"item": [
 		{
@@ -33,14 +34,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/users/2",
+							"raw": "localhost:8080/users/4",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"users",
-								"2"
+								"4"
 							]
 						}
 					},
@@ -53,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"CHRIMPY\"\n}",
+							"raw": "{\n    \"username\": \"CHRIMPY 2\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -107,14 +108,387 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/users/5",
+							"raw": "localhost:8080/users/4",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"users",
-								"5"
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "INDEX books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET book by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Book by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookshelf",
+			"item": [
+				{
+					"name": "GET Bookshelves by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/bookshelves/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookshelves",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET users associated bookshelf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/bookshelves/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookshelves",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Bookshelf Name",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/bookshelves/1?name=Robbie's Holiday Reads",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookshelves",
+								"1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Robbie's Holiday Reads"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Bookshelf by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/bookshelves/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookshelves",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UsersBooks",
+			"item": [
+				{
+					"name": "GET all a users books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users-books",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users-books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET specific users book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users-books/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users-books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH update reading status of specific book",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users-books/1?readingStatus=READ",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users-books",
+								"1"
+							],
+							"query": [
+								{
+									"key": "readingStatus",
+									"value": "READ"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET a single book from a specific user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users-books/1/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users-books",
+								"1",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET a single book from a specific user (when bookshelf isn't present)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users-books/1/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users-books",
+								"1",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Live Demo",
+			"item": [
+				{
+					"name": "GET Robbie's Bookshelves",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH update reading status book 1",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users-books/1?readingStatus=TO_READ",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users-books",
+								"1"
+							],
+							"query": [
+								{
+									"key": "readingStatus",
+									"value": "TO_READ"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH update reading status book2",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users-books/2?readingStatus=TO_READ",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users-books",
+								"2"
+							],
+							"query": [
+								{
+									"key": "readingStatus",
+									"value": "TO_READ"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH update reading status book 3",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users-books/3?readingStatus=TO_READ",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users-books",
+								"3"
+							],
+							"query": [
+								{
+									"key": "readingStatus",
+									"value": "TO_READ"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Summer Reads",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/bookshelves/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookshelves",
+								"1"
 							]
 						}
 					},
