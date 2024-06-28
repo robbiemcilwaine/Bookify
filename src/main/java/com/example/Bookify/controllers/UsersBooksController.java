@@ -21,21 +21,18 @@ public class UsersBooksController {
     @Autowired
     UsersBooksService usersBooksService;
 
-    //    Retrieve all users books
     @GetMapping
     public ResponseEntity<List<UsersBooks>> getAllUsersBooks(){
         List<UsersBooks> usersBooks = usersBooksService.getAllUsersBooks();
         return new ResponseEntity<>(usersBooks, HttpStatus.OK);
     }
 
-//   Get a specific users books
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<List<UsersBooks>>> getSpecificUsersBooks(@PathVariable long id){
         Optional<List<UsersBooks>> specificUsersBooks = usersBooksService.getSpecificUsersBooks(id);
         return new ResponseEntity<>(specificUsersBooks, HttpStatus.OK);
     }
 
-    //   Get a single book from a specific user
     @GetMapping("/{userId}/{bookId}")
     public ResponseEntity<UsersBooks> getUsersBooksByUserIdAndBookId(@PathVariable Long userId, @PathVariable Long bookId) {
         UsersBooks usersBook = usersBooksService.findByUserIdAndBookId(userId, bookId);
@@ -46,7 +43,6 @@ public class UsersBooksController {
         }
     }
 
-//    update reading status of specific book
     @PatchMapping(value = "/{id}")
     public ResponseEntity<Optional<UsersBooks>> updateReadingStatus(@PathVariable long id, @RequestParam ReadingStatus readingStatus){
         Optional<UsersBooks> usersBooks = usersBooksService.getUsersBooksById(id);
@@ -57,6 +53,5 @@ public class UsersBooksController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
 
 }

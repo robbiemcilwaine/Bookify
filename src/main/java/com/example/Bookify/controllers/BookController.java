@@ -19,14 +19,12 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-//    Retrieve all books
     @GetMapping
     public ResponseEntity<List<Book>> getAllBooks(){
         List<Book> books = bookService.getAllBooks();
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
-//    Get book by id
     @GetMapping(value = ("/{id}"))
     public ResponseEntity<Optional<Book>> getBookById(@PathVariable long id){
         Optional<Book> book = bookService.getBookById(id);
@@ -36,8 +34,6 @@ public class BookController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-
-//    Delete a specific book
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable long id){
         bookService.deleteBook(id);

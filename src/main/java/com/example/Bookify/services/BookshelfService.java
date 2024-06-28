@@ -24,22 +24,18 @@ public class BookshelfService {
     @Autowired
     BookService bookService;
 
-    //    Retrieve all bookshelves for a given user ID
     public List<Bookshelf> getBookshelvesByUserId(long userId) {
         return bookshelfRepository.findByUserId(userId);
     }
 
-    //        Get a specific bookshelf by its ID
     public Optional<Bookshelf> getBookshelfByID(long id) {
         return bookshelfRepository.findById(id);
     }
 
-    //    Create a new bookshelf
     public Bookshelf createBookshelf(Bookshelf bookshelf) {
         return bookshelfRepository.save(bookshelf);
     }
 
-    //    Update an existing bookshelf
     public Optional<Bookshelf> updateBookshelfName(long id, String name) {
         Optional<Bookshelf> optionalBookshelf = bookshelfRepository.findById(id);
         if (optionalBookshelf.isPresent()) {
@@ -50,7 +46,6 @@ public class BookshelfService {
         return Optional.empty();
     }
 
-    // Add a book to a bookshelf
     public Optional<Bookshelf> addBookToBookshelf(long bookshelfId, Book book) {
         Optional<Bookshelf> optionalBookshelf = bookshelfRepository.findById(bookshelfId);
         if (optionalBookshelf.isPresent()) {
@@ -62,7 +57,6 @@ public class BookshelfService {
         return Optional.empty();
     }
 
-    // Remove a book from a bookshelf
     public Optional<Bookshelf> removeBookFromBookshelf(long bookshelfId, long bookId) {
         Optional<Bookshelf> optionalBookshelf = bookshelfRepository.findById(bookshelfId);
         if (optionalBookshelf.isPresent()) {
@@ -80,7 +74,6 @@ public class BookshelfService {
         return Optional.empty();
     }
 
-// Delete a specific bookshelf and its associated books (due to the many-to-many relationship)
     public void deleteBookshelf(long id) {
         Bookshelf bookshelf = getBookshelfByID(id).get();
         for (Book book : bookshelf.getBooks()) {
@@ -88,7 +81,6 @@ public class BookshelfService {
         }
         bookshelfRepository.deleteById(id);
     }
-
 
 }
 

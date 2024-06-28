@@ -24,7 +24,6 @@ public class UsersBooksService {
     @Autowired
     UserRepository userRepository;
 
-//    get all users books
     public List<UsersBooks> getAllUsersBooks(){
         return usersBooksRepository.findAll();
     }
@@ -33,7 +32,6 @@ public class UsersBooksService {
         return usersBooksRepository.findById(id);
     }
 
-//    get all a specific users books
     public Optional<List<UsersBooks>> getSpecificUsersBooks(long id){
         Optional<User> optionalUser = userRepository.findById(id);
         if(optionalUser.isPresent()){
@@ -43,15 +41,10 @@ public class UsersBooksService {
         else return Optional.empty();
     }
 
-
-//    get a single book for a specific users books
     public UsersBooks findByUserIdAndBookId(Long userId, Long bookId) {
         Optional<UsersBooks> usersBooksOptional = usersBooksRepository.findByUserIdAndBookId(userId, bookId);
         return usersBooksOptional.orElse(null);
     }
-
-
-//    Updating reading status
 
     public Optional <UsersBooks> updateReadingStatus (long id, ReadingStatus readingStatus){
         Optional<UsersBooks> optionalUsersBooks = usersBooksRepository.findById(id);
@@ -64,8 +57,6 @@ public class UsersBooksService {
             return Optional.empty();
         }
     }
-
-//    delete usersBooks by id
 
     public void deleteUserBook(long id) {
         usersBooksRepository.deleteById(id);
