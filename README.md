@@ -73,7 +73,7 @@ The `UsersBooks` class serves several important purposes in our application:
 
 6. Separation of Concerns: It keeps the User and Book entities clean by moving the relationship-specific data to a separate entity.
 
-7. 
+
 
 
 ### Bookshelf
