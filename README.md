@@ -55,6 +55,26 @@ https://trello.com/b/NlJeK8qk/backend-project
 - Book: Represents a book with properties such as title, author, ISBN, publication year, genre, and rating.
 - Bookshelf: Represents a user's bookshelf, which contains a list of books.
 - User: Represents a user who owns the bookshelf and can add many books to their bookshelf, as a list. Users can have multiple bookshelves.
+- UsersBooks: Represents the relationship between users and books, allowing for additional information such as reading status to be stored.
+
+### UsersBooks Class Explanation
+
+The `UsersBooks` class serves several important purposes in our application:
+
+1. Many-to-Many Relationship: It represents the relationship between users and books. This is a many-to-many relationship, as one user can have many books and one book can belong to many users.
+
+2. Additional Information: It allows us to store additional information about the relationship between a user and a book, such as the reading status.
+
+3. Reading Status: The class includes an `Enumerated` field `readingStatus`, which allows us to track the reading status of each book for each user (e.g., UNASSIGNED, TO_READ, CURRENTLY_READING, READ).
+
+4. Flexibility: By using this intermediate class, we can easily add more attributes to the relationship in the future without modifying the User or Book classes.
+
+5. Querying: It allows for more efficient querying of user-book relationships. For example, we can easily find all books with a certain status for a specific user.
+
+6. Separation of Concerns: It keeps the User and Book entities clean by moving the relationship-specific data to a separate entity.
+
+7. 
+
 
 ### Bookshelf
 
@@ -67,6 +87,21 @@ https://trello.com/b/NlJeK8qk/backend-project
 | UPDATE/PATCH | localhost:8080/bookshelves/{id} | Update the name of a specific bookshelf |
 |DELETE |localhost:8080/bookshelves/{id}|Delete bookshelf by bookshelf_id (this will be mapped by the value = “bookshelves_id”)|
 |DELETE |localhost:8080/bookshelves/{id}/books/{id}|Delete specific book from a bookshelf|
+
+
+#### Clarification for "Add book to bookshelf" method
+
+The PATCH endpoint `localhost:8080/bookshelves/{id}` for adding a book to an existing bookshelf has the following characteristics:
+
+* This method allows you to add a book's name, genre, and reading status to a bookshelf.
+* The book details are handled in the request body (in POSTMAN).
+* You are essentially "creating" a book by adding its details manually in the request body in POSTMAN.
+* If the book doesn't exist in the database, it will be created and then added to the bookshelf.
+* If the book already exists, it will be added to the bookshelf without creating a duplicate.
+
+
+
+
 
 ### Book
 
