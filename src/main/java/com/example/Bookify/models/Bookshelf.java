@@ -31,10 +31,6 @@ public class Bookshelf {
     @JsonIgnoreProperties({"bookshelves"})
     private List<Book> books;
 
-//    @OneToMany(mappedBy = "bookshelves")
-//    @JoinColumn(name = "bookshelves_id")
-//
-
     public Bookshelf(User user, String name) {
         this.user = user;
         this.name = name;
